@@ -1,10 +1,10 @@
 import pygame
 
 pygame.font.init()
-Window = pygame.display.set_mode((500, 500))
+Window = pygame.display.set_mode((700, 700))
 pygame.display.set_caption("SUDOKU GAME")
 x, z = 0, 0
-diff = 500 // 9  
+diff = 700 // 9  
 value = 0
 defaultgrid = [
     [0, 0, 2, 0, 5, 3, 0, 9, 0],
@@ -42,8 +42,8 @@ def drawlines():
                 Window.blit(text1, (j * diff + 15, i * diff + 15))
     for l in range(10):
         thick = 7 if l % 3 == 0 else 1
-        pygame.draw.line(Window, (0, 0, 0), (0, l * diff), (500, l * diff), thick)
-        pygame.draw.line(Window, (0, 0, 0), (l * diff, 0), (l * diff, 500), thick)
+        pygame.draw.line(Window, (0, 0, 0), (0, l * diff), (700, l * diff), thick)
+        pygame.draw.line(Window, (0, 0, 0), (l * diff, 0), (l * diff, 700), thick)
 
 def fillvalue(value):
     text1 = font.render(str(value), 1, (0, 0, 0))
@@ -51,11 +51,8 @@ def fillvalue(value):
 
 def raiseerror():
     text1 = font.render("Wrong!", 1, (0, 0, 0))
-    Window.blit(text1, (20, 500 - 30)) 
-
-def raiseerror1():
-    text1 = font.render("Wrong! enter a valid key for the game", 1, (0, 0, 0))
-    Window.blit(text1, (20, 500 - 30))
+    Window.blit(text1, (20, 700 - 30)) 
+    pygame.time.delay(1000)
 
 def validvalue(m, k, l, value):
     for it in range(9):
@@ -101,7 +98,7 @@ def solvegame(defaultgrid, i, j):
 
 def gameresult():
     text1 = font.render("Game finished", 1, (0, 0, 0))
-    Window.blit(text1, (20, 500 - 30))
+    Window.blit(text1, (20, 700 - 30))
     
 flag = True
 flag1 = 0
@@ -167,7 +164,7 @@ while flag:
             defaultgrid[int(z)][int(x)] = value
             flag1 = 0
         else:
-            raiseerror1()
+            raiseerror()
         value = 0
     if error == 1:
         raiseerror()
