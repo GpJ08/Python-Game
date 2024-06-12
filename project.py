@@ -50,9 +50,17 @@ def fillvalue(value):
     Window.blit(text1, (x * diff + 15, z * diff + 15))
 
 def raiseerror():
-    text1 = font.render("Wrong!", 1, (0, 0, 0))
-    Window.blit(text1, (20, 700 - 30)) 
-    pygame.time.delay(1000)
+    text1 = font.render("Wrong!", 1, (0, 0, 0))  
+    Window.blit(text1, (300, 300)) 
+    pygame.display.update() 
+    pygame.time.delay(2000)  
+
+    
+    Window.fill((255, 182, 193))  
+    drawlines() 
+    if flag1 == 1:  
+        highlightbox()
+    pygame.display.update()
 
 def validvalue(m, k, l, value):
     for it in range(9):
@@ -129,7 +137,8 @@ while flag:
                 z = min(8, z + 1)
                 flag1 = 1
             if event.key in [pygame.K_1, pygame.K_2, pygame.K_3, pygame.K_4, pygame.K_5, pygame.K_6, pygame.K_7, pygame.K_8, pygame.K_9]:
-                value = int(event.unicode)
+                if original_grid[z][x] == 0:
+                    value = int(event.unicode)
             if event.key == pygame.K_RETURN:
                 flag2 = 1
             if event.key == pygame.K_r:
