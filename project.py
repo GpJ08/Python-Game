@@ -55,7 +55,6 @@ def raiseerror():
     pygame.display.update() 
     pygame.time.delay(1300)  
 
-    
     Window.fill((255, 182, 193))  
     drawlines() 
     if flag1 == 1:  
