@@ -53,7 +53,7 @@ def raiseerror():
     text1 = font.render("Wrong!", 1, (0, 0, 0))  
     Window.blit(text1, (300, 300)) 
     pygame.display.update() 
-    pygame.time.delay(2000)  
+    pygame.time.delay(1300)  
 
     
     Window.fill((255, 182, 193))  
